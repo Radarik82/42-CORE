@@ -1,0 +1,201 @@
+install sudo
+# apt install sudo
+# sudo reboot
+switch to sudo 
+# su root
+and check version 
+# sudo -V
+---- or to the file 
+# sudo -V > file.txt   # sudo nano file.txt
+to add user 
+# sudo adduser <name>
+# sudo addgroup <user42>
+to check group
+# sudo getent group user42
+or to check all groups
+# sudo cat /etc/group
+adding user to group
+# sudo adduser <name> <group>
+
+SSH - SecureSHell
+# sudo apt update
+# sudo apt install openssh-server
+# sudo service ssh status
+config
+# sudo nano /etc/ssh/sshd_config
+need to uncomment   Include   AND   port 4242	AND PermitRootLogin no
+# sudo nano /etc/ssh/ssh_config
+uncomment Port 4242
+then
+# sudo service ssh restart
+# sudo service ssh status
+
+UFW - UserFireWall
+# sudo apt install ufw
+# sudo ufw enable
+# sudo ufw allow 4242
+# sudo ufw status
+
+Policies
+# touch /etc/sudoers.d/sudo_config
+# mkdir /var/log/sudo
+# sudo nano /etc/sudoers.d/sudo_config
+Defaults	passwd_tries=3
+Defaults	badpass_message="ENTER NEW TEXT"
+Defaults	logfile="/var/log/sudo/sudo_config"
+Defaults	log_input, log_output
+Defaults	iolog_dir="/var/log/sudo"
+Defaults	requiretty	
+Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+Defaults	insults
+Strong policies
+# sudo nano /etc/login.defs
+PASS_MAX_DAYS 30
+PASS_MIN_DAYS 2
+PASS_WARN_AGE 
+then
+# sudo apt install libpam-pwquality
+# sudo nano /etc/pam.d/common-password  OR # sudo nano /etc/security/pwquality....
+minlen=10
+ucredit=-1
+dcredit=-1
+lcredit=-1
+maxrepeat=3
+reject_username
+difok=7
+enforce_for_root
+ADDING port 4242 transfer in VB   THEN check connection in terminal   # ssh <user>@localhost -p 4242
+
+MAKING THE SCRIPT  - - - - - - hate this
+_____________
+#!/bin/bash
+
+ARCH=$(uname -srvmo)
+PCPU=$(grep 'physical id' /proc/cpuinfo | uniq | wc -l)
+VCPU=$(grep processor /proc/cpuinfo | uniq | wc -l)
+RAM_TOTAL=$(free -h | grep Mem | awk '{print $2}')
+RAM_USED=$(free -h | grep Mem | awk '{print $3}')
+RAM_PERC=$(free -k | grep Mem | awk '{printf("%.2f%%"), $3 / $2 * 100}')
+DISK_TOTAL=$(df -h --total | grep total | awk '{print $2}')
+DISK_USED=$(df -h --total | grep total | awk '{print $3}')
+DISK_PERC=$(df -k --total | grep total | awk '{print $5}')
+CPU_LOAD=$(top -bn1 | grep '^%Cpu' | xargs | awk '{printf("%.1f%%"), $2 + $4}')
+LAST_BOOT=$(who -b | awk '{print($3 " " $4)}')
+LVM=$(if [ $(lsblk | grep lvm | wc -l) -eq 0 ]; then echo no; else echo yes; fi)
+TCP=$(grep TCP /proc/net/sockstat | awk '{print $3}')
+USER_LOG=$(who | wc -l)
+IP_ADDR=$(hostname -I | awk '{print $1}')
+MAC_ADDR=$(ip link show | grep link/ether | awk '{print $2}')
+SUDO_LOG=$(grep COMMAND /var/log/sudo/sudo.log | wc -l)
+
+wall "
+       ------------------------------------------------
+       Architecture    : $ARCH
+       Physical CPUs   : $PCPU
+       Virtual CPUs    : $VCPU
+       Memory Usage    : $RAM_USED/$RAM_TOTAL ($RAM_PERC)
+       Disk Usage      : $DISK_USED/$DISK_TOTAL ($DISK_PERC)
+       CPU Load        : $CPU_LOAD
+       Last Boot       : $LAST_BOOT
+       LVM use         : $LVM
+       TCP Connections : $TCP established
+       Users logged    : $USER_LOG
+       Network         : $IP_ADDR ($MAC_ADDR)
+       Sudo            : $SUDO_LOG commands used
+       ------------------------------------------------"
+
+	   
+# sudo crontab -u root -e
+add */10 * * * * sh /path to script
+
+# sudo shasum Born2beRoot.vdi
+
+Lighttpd - web server    consumes less CPU and RAM
+# sudo apt install lihttpd
+# sudo ufw allow 80
+# sudo ufw status
+ADD port 80 transfer in VB
+
+WordPress
+# sudo apt install wget zip
+goto /var/www/
+# sudo mv html/ html_old/
+# sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html
+# sudo tar -xzvf /html/latest.tar.gz
+# sudo mv wordpress/ html
+# sudo chmod -R 755 html      7 - rwx owner permis    5 - others only rx
+
+
+
+MariaDB  - DataBase for e-commerce, storage or logging application
+# sudo apt install mariadb-server
+# sudo mysql_secure_installation
+____
+Switch to unix_socket autentication? → N
+Change the root password? → N
+Remove anonymous users? → Y
+Disallow root login remotely? → Y
+Remove test database and acces to it? → Y
+Reaload privilege tables now? → Y
+# mariadb
+# CREATE DATABASE wp_database;
+# SHOW DATABASES;
+# CREATE USER 'ariazano'@'localhost' IDENTIFIED BY '12345';
+# GRANT ALL PRIVILEGES ON wp_database.* TO 'ariazano'@'localhost';
+# FLUSH PRIVILEGES
+# SHOW DATABASES;
+exit
+
+PHP - lang for web aplication
+# sudo apt update
+# sudo apt install php-cgi php-mysql
+
+WordPress config
+goto /var/www/html
+# cp wp-config-sample.php wp-config.php
+# sudo nano wp-config.php
+DB_NAME		wp_database
+DB_USER		ariazano
+DB_PASSWORD	12345
+# sudo lighty-enable-mod fastcgi   		- improve speed and performance of web-app
+# sudo lighty-enable-mod fastcgi-php 	- same for php
+# sudo service lighttpd force-reload    - update
+
+
+Browser
+localhost
+fill in your data
+install wordpress
+to access control panel - localhost/wp-admin
+
+
+LETS ADD FTP
+# sudo apt install vsftpd
+# sudo apt install ftp
+# dpkg -l | grep vsftpd
+# sudo ufw allow 21
+# sudo vi /etc/vsftpd.conf
+____
+uncomment write_enable=YES
+
+$ sudo mkdir /home/ariazano/ftp
+$ sudo mkdir /home/ariazano/ftp/files
+$ sudo chown nobody:group /home/ariazano/ftp
+$ sudo chmod a-w /home/ariazano/ftp
+
+user_sub_token=$USER
+local_root=/home/$USER/ftp
+
+uncomment
+#chroot_local_user=YES
+
+$ sudo vi /etc/vsftpd.userlist
+$ echo ariazano | sudo tee -a /etc/vsftpd.userlist
+
+userlist_enable=YES
+userlist_file=/etc/vsftpd.userlist
+userlist_deny=NO
+____
+
+in terminal ftp localhost
+
