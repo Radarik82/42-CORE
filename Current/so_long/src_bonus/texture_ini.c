@@ -32,21 +32,11 @@ void	ft_texture(t_game *game)
 	t_a(game, &game->play.play_run_3, "rscs/textures/play_run_3.xpm");
 	t_a(game, &game->play.play_run_4, "rscs/textures/play_run_4.xpm");
 	t_a(game, &game->play.play_run_5, "rscs/textures/play_run_5.xpm");
+
 	t_a(game, &game->wind.wall_0, WALL_0);
 	t_a(game, &game->wind.floor_0, "rscs/textures/floor_0.xpm");
 	t_a(game, &game->wind.exit_close, "rscs/textures/exit_c_clean.xpm");
 	t_a(game, &game->coin.coin, "rscs/textures/chest_0.xpm");
-//	t_a(game, &game->coin.coin_0, "rscs/textures/chest_0.xpm");
-//	t_a(game, &game->coin.coin_1, "rscs/textures/chest_1.xpm");
-//	t_a(game, &game->coin.coin_2, "rscs/textures/chest_2.xpm");
-	// 25
-
-
-//	t_a(game, &game->coin.coin_3, "rscs/textures/chest_3.xpm");
-//	t_a(game, &game->coin.coin_4, "rscs/textures/chest_4.xpm");
-//	t_a(game, &game->coin.coin_5, "rscs/textures/chest_5.xpm");
-//	t_a(game, &game->coin.coin_6, "rscs/textures/chest_6.xpm");
-//	t_a(game, &game->coin.coin_7, "rscs/textures/chest_7.xpm");
 	t_a(game, &game->wind.exiting, WALL_0);
 	t_a(game, &game->wind.exit_open, "rscs/textures/exit_open.xpm");
 	ft_texture1(game);
@@ -62,7 +52,8 @@ void	ft_texture1(t_game *game)
 //	t_a(game, &game->wind.exit_open_5, "rscs/textures/play_run_5.xpm");
 	t_a(game, &game->play.spiked, "rscs/textures/death_in_spike.xpm");
 	t_a(game, &game->play.spiked, "rscs/textures/spiked.xpm");
-	t_to_list(&game->tspikes, "rscs/textures/spike_0.xpm");
+
+//	t_to_list(&game->tspikes, "rscs/textures/spike_0.xpm");
 	t_to_list(&game->tspikes, "rscs/textures/spike_1.xpm");
 	t_to_list(&game->tspikes, "rscs/textures/spike_2.xpm");
 	t_to_list(&game->tspikes, "rscs/textures/spike_3.xpm");
@@ -72,25 +63,16 @@ void	ft_texture1(t_game *game)
 	t_to_list(&game->tspikes, "rscs/textures/spike_7.xpm");
 	t_to_list(&game->tspikes, "rscs/textures/spike_8.xpm");
 	t_to_list(&game->tspikes, "rscs/textures/spike_9.xpm");
+	t_to_list(&game->tspikes, "rscs/textures/spike_0.xpm");
+
+
 	t_to_list(&game->tgoo, "rscs/textures/goo_idle_0.xpm");
 	t_to_list(&game->tgoo, "rscs/textures/goo_idle_1.xpm");
 	t_to_list(&game->tgoo, "rscs/textures/goo_idle_2.xpm");
 	t_to_list(&game->tgoo, "rscs/textures/goo_idle_3.xpm");
 	t_to_list(&game->tgoo, "rscs/textures/goo_idle_4.xpm");
 	t_to_list(&game->tgoo, "rscs/textures/goo_idle_5.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo0.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo1.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo2.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo3.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo4.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo5.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo6.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo7.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo8.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo9.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo10.xpm");
-//	t_to_list(&game->tgoode, "rscs/textures/death_in_goo11.xpm");
+
 	t_to_list(&game->texit, "rscs/textures/dor_open_0.xpm");
 	t_to_list(&game->texit, "rscs/textures/dor_open_1.xpm");
 	t_to_list(&game->texit, "rscs/textures/dor_open_2.xpm");
@@ -117,6 +99,7 @@ void	ft_texture1(t_game *game)
 	t_to_list(&game->texit, "rscs/textures/dor_open_23.xpm");
 	t_to_list(&game->texit, "rscs/textures/dor_open_24.xpm");
 	t_to_list(&game->texit, "rscs/textures/dor_open_25.xpm");
+
 	t_to_list(&game->tcoin, "rscs/textures/chest_0.xpm");
 	t_to_list(&game->tcoin, "rscs/textures/chest_1.xpm");
 	t_to_list(&game->tcoin, "rscs/textures/chest_2.xpm");
@@ -126,6 +109,7 @@ void	ft_texture1(t_game *game)
 	t_to_list(&game->tcoin, "rscs/textures/chest_6.xpm");
 	t_to_list(&game->tcoin, "rscs/textures/chest_7.xpm");
 	t_to_list(&game->tcoin, "rscs/textures/chest_0.xpm");
+
 	t_to_list(&game->tgoode, "rscs/textures/dead_in_goo.xpm");
 	t_to_list(&game->tgoode, "rscs/textures/dead_in_goo1.xpm");
 	t_to_list(&game->tgoode, "rscs/textures/dead_in_goo2.xpm");
@@ -175,37 +159,37 @@ void	ft_texture1(t_game *game)
 	t_to_list(&game->twalk, "rscs/textures/right_16.xpm");
 	t_to_list(&game->twalk, "rscs/textures/right_17.xpm");
 	t_to_list(&game->twalk, "rscs/textures/right_18.xpm");
-//	t_to_list(&game->twalk, "rscs/textures/right_19.xpm");
 
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_00.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_00.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_02.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_02.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_04.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_04.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_06.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_06.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_08.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_08.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_10.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_10.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_12.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_12.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_14.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_14.xpm");
-//	t_to_list(&game->twalkl, "rscs/textures/moving_left_16.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/troll_idle_0.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/floor_0.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/troll_idle_1.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/floor_0.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/troll_idle_2.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/floor_0.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/troll_idle_3.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/floor_0.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/troll_idle_4.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/floor_0.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/troll_idle_5.xpm");
-//	t_to_list(&game->ttroll, "rscs/textures/floor_0.xpm");
-//	t_to_list(&game->tspikes, "rscs/textures/spike_9.xpm");
-//	printf("this is game->tsp  %s\n", game->tspikes->content);
+	t_to_list(&game->twalkl, "rscs/textures/left_01.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_02.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_03.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_04.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_05.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_06.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_07.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_08.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_09.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_10.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_11.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_12.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_13.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_14.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_15.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_16.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_17.xpm");
+	t_to_list(&game->twalkl, "rscs/textures/left_18.xpm");
+
+	t_to_list(&game->tidle, "rscs/textures/play_idle_r0.xpm");
+	t_to_list(&game->tidle, "rscs/textures/play_idle_r1.xpm");
+	t_to_list(&game->tidle, "rscs/textures/play_idle_r2.xpm");
+	t_to_list(&game->tidle, "rscs/textures/play_idle_r3.xpm");
+	t_to_list(&game->tidle, "rscs/textures/play_idle_r4.xpm");
+	t_to_list(&game->tidle, "rscs/textures/play_idle_r5.xpm");
+
+	t_to_list(&game->tidlel, "rscs/textures/play_idle_0.xpm");
+	t_to_list(&game->tidlel, "rscs/textures/play_idle_1.xpm");
+	t_to_list(&game->tidlel, "rscs/textures/play_idle_2.xpm");
+	t_to_list(&game->tidlel, "rscs/textures/play_idle_3.xpm");
+	t_to_list(&game->tidlel, "rscs/textures/play_idle_4.xpm");
+	t_to_list(&game->tidlel, "rscs/textures/play_idle_5.xpm");
 }

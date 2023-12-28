@@ -97,8 +97,6 @@ void	check_map_1(t_game *game, int i, int j)
 	 	alloc_exit(game, i, j);
 	else if (game->map_full[i][j] == SPIKES)
 		alloc_spikes(game, i, j);
-	else if (game->map_full[i][j] == TROLL)
-		alloc_troll(game, i, j);
 	else if (game->map_full[i][j] == GOO)
 		alloc_goo(game, i, j);
 	else
@@ -128,12 +126,6 @@ void	alloc_goo(t_game *game, int i, int j)
 {
 	game->goo++;
 	e_to_list(&game->mapgoo, i, j);
-}
-
-void	alloc_troll(t_game *game, int i, int j)
-{
-	game->troll++;
-	e_to_list(&game->maptroll, i, j);
 }
 
 void	ft_check_total(t_game *game)

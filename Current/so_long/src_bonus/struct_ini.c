@@ -72,6 +72,7 @@ void	struct_ini1(t_game **game)
 	(*game)->goo_death = 0;
 	(*game)->stepped_in_goo = 0;
 	(*game)->direction = 0;
+	(*game)->spike_delay = 0;
 //	(*game)->mapspikes = enemy_first_node(1);
 //	(*game)->mapcoin = enemy_first_node(1);
 //	(*game)->mapgoo = enemy_first_node(1);

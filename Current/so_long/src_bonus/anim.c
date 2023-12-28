@@ -21,12 +21,15 @@ int	ft_refresh(t_game *game)
 	if (game->inv_n_coins == 0)
 		game->exit_open = 1;
 	player_moves(game);
-	draw_many_spikes(game);
+//	draw_any_list(game, &game->tspikes, 1, 2, 8);
 	draw_exit(game, &game->texit, game->wind.exit_y, game->wind.exit_x);
 	draw_goo_d(game, &game->tgoode);
 	goo_anim_map(game, &game->tgoo, &game->mapgoo);
+	spikes_anim_map(game, &game->tspikes, &game->mapspikes);
+	draw_idle_p(game, game->play_row, game->play_col, 3);
+
 //	draw_any_list(game, &game->twalkl, 2, 4, 3);
-	draw_any_list(game, &game->twalk, 3, 5, 2);
+//	draw_any_list(game, &game->twalk, 3, 5, 2);
 
 	coin_list_anim_map(game, &game->tcoin, &game->mapcoin);
  return (1);

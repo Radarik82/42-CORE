@@ -32,13 +32,13 @@
 //	}
 //}
 
-void	draw_many_spikes(t_game *game)
-{
-	draw_any_list(game, &game->tspikes, 1, 2, 8);
+//void	draw_many_spikes(t_game *game)
+//{
+//	draw_any_list(game, &game->tspikes, 1, 2, 8);
 //	draw_any_list(game, &game->tgoo,2, 5);
 //	draw_any_list(game, &game->ttroll, 1, 6);
 //	draw_any_list(game, &game->tgoode, 1, 6);
-}
+//}
 
 void	draw_any_list(t_game *game, t_imglist **imglist, int row, int col, int z)
 {
@@ -55,6 +55,36 @@ void	draw_any_list(t_game *game, t_imglist **imglist, int row, int col, int z)
 			mlx_put_image_to_window(game->mlx_ptr, game->mlx_window,
 				img, col * CELL, row * CELL);
 			rotate(imglist);
+		}
+	}
+}
+
+void	draw_idle_p(t_game *game, int row, int col, int z)
+{
+	void	*img;
+	int		h;
+	int		w;
+//	char	*a;
+
+	if (game->alive == 1)
+	{
+		if (game->frame % z == 0)
+		{
+			if (game->direction == 1)
+			{
+				img = mlx_xpm_file_to_image(game->mlx_ptr, game->tidlel->content, &h, &w);
+				rotate(&game->tidlel);
+			}
+			if (game->direction == 0)
+			{
+				img = mlx_xpm_file_to_image(game->mlx_ptr, game->tidle->content, &h, &w);
+				rotate(&game->tidle);
+			}
+//			char *a = (*imglist)->content;
+//			img = mlx_xpm_file_to_image(game->mlx_ptr, a, &h, &w);
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_window,
+									img, col * CELL, row * CELL);
+
 		}
 	}
 }

@@ -34,8 +34,6 @@
 # define EMPTY '0'
 # define GOO 'G'
 # define GOOED 'g'
-# define TROLL 'T'
-# define TROLLED 't'
 # define SPIKES 'S'
 # define SPIKED 's'
 # define EXITING 'X'
@@ -171,8 +169,8 @@ typedef struct s_game
 	int		moves;
 	int		frame;
 	int		n_read;
-	long	t_s;
-	long	t_su;
+//	long	t_s;
+//	long	t_su;
 	int		exit_opened;
 	long	start_time;
 	long	current_time;
@@ -181,13 +179,14 @@ typedef struct s_game
 	int		enemy;
 	int		spikes;
 	int		goo;
-	int		troll;
 	int		coin_delay;
+	int 	spike_delay;
 	int		goo_death;
 	int		killed_y;
 	int		killed_x;
 	int		direction;
 	int 	walking;
+	int 	deadly;
 
 	t_play		play;
 	t_wind		wind;
@@ -197,7 +196,6 @@ typedef struct s_game
 	t_imglist	*texit;
 	t_imglist	*tplay_idle;
 	t_imglist	*tgoo;
-	t_imglist	*ttroll;
 	t_imglist	*play_run;
 	t_imglist	*tgoode;
 	t_imglist	*tcoin;
@@ -207,7 +205,6 @@ typedef struct s_game
 	t_imglist	*tidle;
 
 	t_enemy		*mapspikes;
-	t_enemy		*maptroll;
 	t_enemy		*mapgoo;
 	t_enemy		*mapcoin;
 
@@ -244,6 +241,8 @@ void		ft_move(t_game *game, int x, int y);
 void		draw_spiked(t_game *game, int y, int x);
 void		draw_exiting(t_game *game, int y, int x);
 void		draw_walk(t_game *game, int y, int x);
+void		draw_walk_l(t_game *game, int y, int x);
+void		draw_walk_r(t_game *game, int y, int x);
 
 int			ft_refresh(t_game *game);
 int			ft_show_moves(t_game *game);
@@ -279,7 +278,6 @@ t_enemy		*enemy_is_bottom(t_enemy *stack);
 void		e_to_list(t_enemy **enemy_list, int x, int y);
 void		alloc_spikes(t_game *game, int i, int j);
 void		alloc_goo(t_game *game, int i, int j);
-void		alloc_troll(t_game *game, int i, int j);
 void		draw_many_spikes(t_game *game);
 void		draw_any_list(t_game *game, t_imglist **imglist, int row, int col, int z);
 void		draw_enemy(t_game *game, t_imglist **imglist, int row, int col);
@@ -294,13 +292,15 @@ void		coin_list_anim_map(t_game *game,
 t_enemy		*is_bottom_enemy(t_enemy *stack);
 void		rotate_enemy(t_enemy **stack);
 void		alloc_coins(t_game *game, int i, int j);
-//void		lstdelone_enemy(t_enemy *lst, void (*del)(void *));
-//void		lstclear_enemy(t_enemy **lst, void (*del)(void *));
 void		coin_collect(t_game *game, int y, int x);
 void		free_coin(t_enemy **enemy);
 t_enemy		*enemy_first_node(int num);
 void		alloc_exit(t_game *game, int i, int j);
 void		loop_alloc_coin(t_game *game);
 void		goo_anim_map(t_game *game, t_imglist **imglist, t_enemy **enemy);
+void		ft_move_side(t_game *game, int y, int x);
+void		spikes_anim_map(t_game *game, t_imglist **imglist, t_enemy **enemy);
+void		draw_idle_p(t_game *game, int row, int col, int z);
+void		spike_delay(t_game *game);
 
 #endif
