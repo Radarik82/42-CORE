@@ -12,7 +12,6 @@
 
 #include "../src_bonus/so_long.h"
 
-// too many functions
 // checking paths to all coins and at least one exit
 int	filler(t_game *game, int j, int i)
 {
@@ -94,38 +93,13 @@ void	check_map_1(t_game *game, int i, int j)
 	if (game->map_full[i][j] == COIN)
 		alloc_coins(game, i, j);
 	else if (game->map_full[i][j] == EXIT)
-	 	alloc_exit(game, i, j);
+		alloc_exit(game, i, j);
 	else if (game->map_full[i][j] == SPIKES)
 		alloc_spikes(game, i, j);
 	else if (game->map_full[i][j] == GOO)
 		alloc_goo(game, i, j);
 	else
 		game->invalid_char++;
-}
-
-void	alloc_exit(t_game *game, int i, int j)
-{
-	game->inv_n_exits++;
-	game->wind.exit_x = j;
-	game->wind.exit_y = i;
-}
-
-void	alloc_spikes(t_game *game, int i, int j)
-{
-	game->spikes++;
-	e_to_list(&game->mapspikes, i, j);
-}
-
-void	alloc_coins(t_game *game, int i, int j)
-{
-	game->inv_n_coins++;
-	e_to_list(&game->mapcoin, i, j);
-}
-
-void	alloc_goo(t_game *game, int i, int j)
-{
-	game->goo++;
-	e_to_list(&game->mapgoo, i, j);
 }
 
 void	ft_check_total(t_game *game)
@@ -142,12 +116,4 @@ void	ft_check_total(t_game *game)
 	filler(game, game->play_col, game->play_row);
 	if (!(game->inv_n_coin_check == 0 && game->exit_found))
 		ft_error_msg("1000000 paths. They all point to certain death.", game);
-}
-
-void	ft_pos_player(t_game *game, int i, int j)
-{
-	game->inv_n_players++;
-	game->play_row = i;
-	game->play_col = j;
-	game->alive = 1;
 }

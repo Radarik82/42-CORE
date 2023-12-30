@@ -24,18 +24,16 @@ void	goo_anim_map(t_game *game, t_imglist **imglist, t_enemy **enemy)
 	{
 		while (game->mapgoo && i < game->goo)
 		{
-			coin = mlx_xpm_file_to_image(game->mlx_ptr, (*imglist)->content, &h, &w);
+			coin = mlx_xpm_file_to_image(game->mlx_ptr,
+					(*imglist)->content, &h, &w);
 			mlx_put_image_to_window(game->mlx_ptr, game->mlx_window, coin,
-									game->mapgoo->y * CELL, game->mapgoo->x * CELL);
+				game->mapgoo->y * CELL, game->mapgoo->x * CELL);
 			if (game->mapgoo->next != NULL)
 				rotate_enemy(enemy);
 			i++;
 		}
 		rotate(imglist);
 	}
-//	game->coin_delay++;
-//	if (game->coin_delay == 200)
-//		game->coin_delay = 0;
 }
 
 void	spikes_anim_map(t_game *game, t_imglist **imglist, t_enemy **enemy)
@@ -51,9 +49,10 @@ void	spikes_anim_map(t_game *game, t_imglist **imglist, t_enemy **enemy)
 		game->deadly = 1;
 		while (game->mapspikes && i < game->spikes)
 		{
-			coin = mlx_xpm_file_to_image(game->mlx_ptr, (*imglist)->content, &h, &w);
+			coin = mlx_xpm_file_to_image(game->mlx_ptr,
+					(*imglist)->content, &h, &w);
 			mlx_put_image_to_window(game->mlx_ptr, game->mlx_window, coin,
-									game->mapspikes->y * CELL, game->mapspikes->x * CELL);
+				game->mapspikes->y * CELL, game->mapspikes->x * CELL);
 			if (game->mapspikes->next != NULL)
 				rotate_enemy(enemy);
 			i++;

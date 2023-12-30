@@ -24,9 +24,10 @@ void	coin_list_anim_map(t_game *game, t_imglist **imglist, t_enemy **enemy)
 	{
 		while (game->mapcoin && i < game->inv_n_coins)
 		{
-			coin = mlx_xpm_file_to_image(game->mlx_ptr, (*imglist)->content, &h, &w);
+			coin = mlx_xpm_file_to_image(game->mlx_ptr,
+					(*imglist)->content, &h, &w);
 			mlx_put_image_to_window(game->mlx_ptr, game->mlx_window, coin,
-									game->mapcoin->y * CELL, game->mapcoin->x * CELL);
+				game->mapcoin->y * CELL, game->mapcoin->x * CELL);
 			if (game->mapcoin->next != NULL)
 				rotate_enemy(enemy);
 			i++;

@@ -57,19 +57,11 @@ int	ft_draw_map(t_game *game, int row, int col)
 		ft_finish_game(game, row, col);
 	if (game->map_full[row][col] == SPIKED)
 		death_in_spikes(game, game->play_row, game->play_col);
-//	if (game->map_full[row][col] == GOO)
-//		draw_enemy(game, &game->tgoo, row, col);
-	if (game->map_full[row][col] == EMPTY || game->map_full[row][col] == COIN || game->map_full[row][col] == GOO)
+	if (game->map_full[row][col] == EMPTY || game->map_full[row][col] == COIN
+		|| game->map_full[row][col] == GOO)
 		ft_tile_draw(game, game->wind.floor_0, row, col);
-//	if (game->map_full[row][col] == COIN)
-//	{
-//		ft_tile_draw(game, game->wind.floor_0, row, col);
-//		ft_tile_draw(game, game->coin.coin, row, col);
-//	}
 	if (game->map_full[row][col] == WALL)
 		ft_tile_draw(game, game->wind.wall_0, row, col);
-	if (game->map_full[row][col] == PLAY)
-		draw_play(game, row, col);
 	if (game->map_full[row][col] == EXIT && game->inv_n_coins != 0)
 		ft_tile_draw(game, game->wind.exit_close, row, col);
 	return (1);
@@ -78,13 +70,4 @@ int	ft_draw_map(t_game *game, int row, int col)
 void	death_in_spikes(t_game *game, int row, int col)
 {
 	ft_tile_draw(game, game->play.spiked, row, col);
-}
-
-void	draw_play(t_game *game, int row, int col)
-{
-	ft_tile_draw(game, game->wind.floor_0, row, col);
-	if (game->direction == 1)
-		ft_tile_draw(game, game->play.play_idle_0, row, col);
-	if (game->direction == 0)
-		ft_tile_draw(game, game->play.play_idle_00, row, col);
 }

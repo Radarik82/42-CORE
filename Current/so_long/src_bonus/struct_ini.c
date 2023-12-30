@@ -60,12 +60,6 @@ void	struct_ini1(t_game **game)
 	(*game)->mlx_ptr = NULL;
 	(*game)->mlx_window = NULL;
 	(*game)->coin.coin = NULL;
-//	(*game)->coin.coin_0 = NULL;
-//	(*game)->coin.coin_1 = NULL;
-//	(*game)->coin.coin_2 = NULL;
-//	(*game)->coin.coin_3 = NULL;
-//	(*game)->coin.coin_4 = NULL;
-//	(*game)->coin.coin_5 = NULL;
 	(*game)->tspikes = NULL;
 	(*game)->exit_opened = 0;
 	(*game)->coin_delay = 0;
@@ -73,8 +67,4 @@ void	struct_ini1(t_game **game)
 	(*game)->stepped_in_goo = 0;
 	(*game)->direction = 0;
 	(*game)->spike_delay = 0;
-//	(*game)->mapspikes = enemy_first_node(1);
-//	(*game)->mapcoin = enemy_first_node(1);
-//	(*game)->mapgoo = enemy_first_node(1);
-//	(*game)->maptroll = enemy_first_node(1);
 }

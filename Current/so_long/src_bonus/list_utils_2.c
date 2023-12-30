@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   list_utils_int.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariazano <ariazano@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 23:35:21 by ariazano          #+#    #+#             */
-/*   Updated: 2023/12/28 21:26:21 by ariazano         ###   ########.fr       */
+/*   Created: 2023/12/18 20:41:41 by ariazano          #+#    #+#             */
+/*   Updated: 2023/12/28 21:26:28 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 // too many functions
 
-void	so_lstadd_back(t_imglist **lst, t_imglist *new)
+void	enemy_lstadd_back(t_enemy **lst, t_enemy *new)
 {
-	t_imglist	*last;
+	t_enemy	*last;
 
 	if (!*lst)
 	{
@@ -25,24 +25,36 @@ void	so_lstadd_back(t_imglist **lst, t_imglist *new)
 	}
 	else if (new)
 	{
-		last = so_lstlast(*lst);
+		last = enemy_lstlast(*lst);
 		last->next = new;
 	}
 }
 
-void	so_lstiter(t_imglist *lst, void (*f)(char *))
+void	enemy_lstiter(t_enemy *lst, void (*f)(t_enemy *))
 {
 	if (lst && f)
 	{
 		while (lst)
 		{
-			f(lst->content);
+			f(lst);
 			lst = lst->next;
 		}
 	}
 }
 
-t_imglist	*so_lstlast(t_imglist *lst)
+t_enemy	*enemy_first_node(int num)
+{
+	t_enemy	*elem;
+
+	elem = malloc(sizeof(t_enemy));
+	if (elem == NULL)
+		return (NULL);
+	elem->number = num;
+	elem->next = NULL;
+	return (elem);
+}
+
+t_enemy	*enemy_lstlast(t_enemy *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -51,28 +63,9 @@ t_imglist	*so_lstlast(t_imglist *lst)
 	return (lst);
 }
 
-t_imglist	*is_bottom(t_imglist *stack)
+t_enemy	*enemy_is_bottom(t_enemy *stack)
 {
 	while (stack && stack->next != NULL)
 		stack = stack->next;
 	return (stack);
-}
-
-t_enemy	*is_bottom_enemy(t_enemy *stack)
-{
-	while (stack && stack->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
-
-t_imglist	*so_lstnew(char *content)
-{
-	t_imglist	*elem;
-
-	elem = malloc(sizeof(t_imglist));
-	if (elem == NULL)
-		return (NULL);
-	elem->content = ft_strdup(content);
-	elem->next = NULL;
-	return (elem);
 }

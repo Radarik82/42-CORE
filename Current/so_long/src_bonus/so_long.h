@@ -187,6 +187,7 @@ typedef struct s_game
 	int		direction;
 	int 	walking;
 	int 	deadly;
+	int 	walked;
 
 	t_play		play;
 	t_wind		wind;
@@ -279,7 +280,7 @@ void		e_to_list(t_enemy **enemy_list, int x, int y);
 void		alloc_spikes(t_game *game, int i, int j);
 void		alloc_goo(t_game *game, int i, int j);
 void		draw_many_spikes(t_game *game);
-void		draw_any_list(t_game *game, t_imglist **imglist, int row, int col, int z);
+void		d_a_l(t_game *game, t_imglist **imglist, int row, int col);
 void		draw_enemy(t_game *game, t_imglist **imglist, int row, int col);
 void		draw_exit(t_game *game, t_imglist **imglist, int row, int col);
 void		coin_list_anim(t_game *game, t_imglist **imglist);
@@ -302,5 +303,7 @@ void		ft_move_side(t_game *game, int y, int x);
 void		spikes_anim_map(t_game *game, t_imglist **imglist, t_enemy **enemy);
 void		draw_idle_p(t_game *game, int row, int col, int z);
 void		spike_delay(t_game *game);
+void		draw_walking(t_game *game, t_imglist **imglist, int row, int col);
+
 
 #endif

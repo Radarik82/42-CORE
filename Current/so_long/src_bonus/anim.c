@@ -14,6 +14,9 @@
 
 //	coin_list_anim(game, &game->tcoin);
 //	coin_list_anim_map(game, &game->tcoin, &game->mapcoin);
+//	d_a_l(game, &game->tspikes, 1, 2);
+//	d_a_l(game, &game->twalk, 3, 5);
+//	draw_walking(game, &game->twalkl, game->play_row, game->play_col - 1, 1);
 
 int	ft_refresh(t_game *game)
 {
@@ -21,18 +24,13 @@ int	ft_refresh(t_game *game)
 	if (game->inv_n_coins == 0)
 		game->exit_open = 1;
 	player_moves(game);
-//	draw_any_list(game, &game->tspikes, 1, 2, 8);
 	draw_exit(game, &game->texit, game->wind.exit_y, game->wind.exit_x);
 	draw_goo_d(game, &game->tgoode);
 	goo_anim_map(game, &game->tgoo, &game->mapgoo);
 	spikes_anim_map(game, &game->tspikes, &game->mapspikes);
 	draw_idle_p(game, game->play_row, game->play_col, 3);
-
-//	draw_any_list(game, &game->twalkl, 2, 4, 3);
-//	draw_any_list(game, &game->twalk, 3, 5, 2);
-
 	coin_list_anim_map(game, &game->tcoin, &game->mapcoin);
- return (1);
+	return (1);
 }
 //
 //void	coin_list_anim(t_game *game, t_imglist **imglist)

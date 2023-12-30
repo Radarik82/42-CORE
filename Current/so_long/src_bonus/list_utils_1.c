@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils_int.c                                   :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariazano <ariazano@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 20:41:41 by ariazano          #+#    #+#             */
-/*   Updated: 2023/12/28 21:26:28 by ariazano         ###   ########.fr       */
+/*   Created: 2023/12/17 23:35:21 by ariazano          #+#    #+#             */
+/*   Updated: 2023/12/28 21:26:21 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 // too many functions
 
-void	enemy_lstadd_back(t_enemy **lst, t_enemy *new)
+void	so_lstadd_back(t_imglist **lst, t_imglist *new)
 {
-	t_enemy	*last;
+	t_imglist	*last;
 
 	if (!*lst)
 	{
@@ -25,49 +25,24 @@ void	enemy_lstadd_back(t_enemy **lst, t_enemy *new)
 	}
 	else if (new)
 	{
-		last = enemy_lstlast(*lst);
+		last = so_lstlast(*lst);
 		last->next = new;
 	}
 }
 
-void	enemy_lstiter(t_enemy *lst, void (*f)(t_enemy *))
+void	so_lstiter(t_imglist *lst, void (*f)(char *))
 {
 	if (lst && f)
 	{
 		while (lst)
 		{
-			f(lst);
+			f(lst->content);
 			lst = lst->next;
 		}
 	}
 }
 
-t_enemy	*enemy_lstnew(int x, int y)
-{
-	t_enemy	*elem;
-
-	elem = malloc(sizeof(t_enemy));
-	if (elem == NULL)
-		return (NULL);
-	elem->x = x;
-	elem->y = y;
-	elem->next = NULL;
-	return (elem);
-}
-
-t_enemy	*enemy_first_node(int num)
-{
-	t_enemy	*elem;
-
-	elem = malloc(sizeof(t_enemy));
-	if (elem == NULL)
-		return (NULL);
-	elem->number = num;
-	elem->next = NULL;
-	return (elem);
-}
-
-t_enemy	*enemy_lstlast(t_enemy *lst)
+t_imglist	*so_lstlast(t_imglist *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -76,7 +51,14 @@ t_enemy	*enemy_lstlast(t_enemy *lst)
 	return (lst);
 }
 
-t_enemy	*enemy_is_bottom(t_enemy *stack)
+t_imglist	*is_bottom(t_imglist *stack)
+{
+	while (stack && stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+
+t_enemy	*is_bottom_enemy(t_enemy *stack)
 {
 	while (stack && stack->next != NULL)
 		stack = stack->next;

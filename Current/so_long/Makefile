@@ -35,14 +35,18 @@ SRCS 			= $(addprefix $(BONUS_SRCS_DIR),\
 				rotate_lists.c \
 				goo_anim.c \
 				coin_anim.c \
-				list_utils_int.c \
 				anim_list.c \
-				list_utils.c \
+				list_utils_1.c \
+				list_utils_2.c \
+				list_utils_3.c \
 				texture_ini.c \
 				so_long.c \
 				map_check.c \
+				map_check_alloc.c \
 				struct_ini.c \
-				moves.c \
+				moves_1.c \
+				moves_2.c \
+				moves_3.c \
 				input.c \
 				draw.c \
 				messages.c \
