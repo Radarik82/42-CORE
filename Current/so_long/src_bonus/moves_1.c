@@ -34,8 +34,8 @@ void	ft_move_left(t_game *game)
 		game->direction = 0;
 		if (game->map_full[game->play_row][game->play_col - 1] == COIN)
 			coin_collect(game, 0, -1);
-		if (/*game->map_full[game->play_row][game->play_col - 1] == SPIKES
-			|| */game->map_full[game->play_row][game->play_col - 1] == GOO)
+		if (game->map_full[game->play_row][game->play_col - 1] == SPIKES
+			|| game->map_full[game->play_row][game->play_col - 1] == GOO)
 			game->alive = 0;
 		ft_move(game, 0, -1);
 
@@ -50,8 +50,8 @@ void	ft_move_right(t_game *game)
 		game->direction = 1;
 		if (game->map_full[game->play_row][game->play_col + 1] == COIN)
 			coin_collect(game, 0, 1);
-		if (/*game->map_full[game->play_row][game->play_col + 1] == SPIKES
-				|| */game->map_full[game->play_row][game->play_col + 1] == GOO)
+		if (game->map_full[game->play_row][game->play_col + 1] == SPIKES
+				|| game->map_full[game->play_row][game->play_col + 1] == GOO)
 			game->alive = 0;
 		ft_move(game, 0, 1);
 
@@ -65,8 +65,8 @@ void	ft_move_up(t_game *game)
 	{
 		if (game->map_full[game->play_row - 1][game->play_col] == COIN)
 			coin_collect(game, -1, 0);
-		if (/*game->map_full[game->play_row - 1][game->play_col] == SPIKES
-				|| */game->map_full[game->play_row - 1][game->play_col] == GOO)
+		if (game->map_full[game->play_row - 1][game->play_col] == SPIKES
+				|| game->map_full[game->play_row - 1][game->play_col] == GOO)
 			game->alive = 0;
 		ft_move(game, -1, 0);
 	}
