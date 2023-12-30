@@ -302,5 +302,11 @@ void		spikes_anim_map(t_game *game, t_imglist **imglist, t_enemy **enemy);
 void		draw_idle_p(t_game *game, int row, int col, int z);
 void		spike_delay(t_game *game);
 void		draw_walking(t_game *game, t_imglist **imglist, int row, int col);
+void		go_anim(t_game *game, int row, int col);
+void		go_anim_b(t_game *game, t_imglist **imglist, int row, int col);
+void		go_anim_l(t_game *game, t_imglist **imglist, int row, int col);
+void		go_anim_r(t_game *game, t_imglist **imglist, int row, int col);
+
+
 
 #endif

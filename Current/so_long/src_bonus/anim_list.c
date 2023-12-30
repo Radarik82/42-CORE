@@ -64,7 +64,7 @@ void	draw_idle_p(t_game *game, int row, int col, int z)
 	int		h;
 	int		w;
 
-	if (game->frame % 9 == 0)
+	if (game->frame % 9 == 0 && game->walking == 0)
 		ft_tile_draw(game, game->wind.floor_0, row, col);
 	if (game->alive == 1 && game->walking == 0 && game->frame % z == 0)
 	{
@@ -114,10 +114,8 @@ void	draw_exit(t_game *game, t_imglist **imglist, int row, int col)
 	if (game->frame % 7 == 0 && game->exit_opened < 26
 		&& game->inv_n_coins == 0)
 	{
-		exit = mlx_xpm_file_to_image(game->mlx_ptr,
-				(*imglist)->content, &h, &w);
-		mlx_put_image_to_window(game->mlx_ptr,
-			game->mlx_window, exit, col * CELL, row * CELL);
+		exit = mlx_xpm_file_to_image(game->mlx_ptr, (*imglist)->content, &h, &w);
+		mlx_put_image_to_window(game->mlx_ptr, game->mlx_window, exit, col * CELL, row * CELL);
 		rotate(imglist);
 		game->exit_opened++;
 	}

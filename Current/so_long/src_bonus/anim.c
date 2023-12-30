@@ -21,10 +21,13 @@
 int	ft_refresh(t_game *game)
 {
 	game->frame += 1;
+
 	if (game->inv_n_coins == 0)
 		game->exit_open = 1;
 	player_moves(game);
 	draw_exit(game, &game->texit, game->wind.exit_y, game->wind.exit_x);
+//	draw_walk_r(game, &game->texit, game->wind.exit_y, game->wind.exit_x);
+	go_anim(game, game->play_row, game->play_col);
 	draw_goo_d(game, &game->tgoode);
 	goo_anim_map(game, &game->tgoo, &game->mapgoo);
 	spikes_anim_map(game, &game->tspikes, &game->mapspikes);
