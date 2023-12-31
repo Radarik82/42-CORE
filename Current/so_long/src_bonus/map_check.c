@@ -22,7 +22,8 @@ int	filler(t_game *game, int j, int i)
 	if (game->map_copy[i][j] == EXIT)
 		game->exit_found = 1;
 	if (game->map_copy[i][j] != WALL && game->map_copy[i][j]
-		!= EXIT && game->map_copy[i][j] != '-')
+		!= EXIT && game->map_copy[i][j] != '-' && game->map_copy[i][j] != GOO
+			&& game->map_copy[i][j] != SPIKES)
 	{
 		game->map_copy[i][j] = '-';
 		if (j > 0)

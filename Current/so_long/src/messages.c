@@ -13,7 +13,7 @@
 #include "so_long.h"
 
 int	ft_error_msg(char *msg, t_game *game)
-{	
+{
 	game->map_alloc = 0;
 	ft_printf(RED"Error\n"GREY"%s\n"RESET, msg);
 	exit (EXIT_FAILURE);

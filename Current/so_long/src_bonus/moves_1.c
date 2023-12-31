@@ -28,14 +28,14 @@ void	ft_move(t_game *game, int y, int x)
 
 void	ft_move_left(t_game *game)
 {
-	if (game->alive && game->map_full[game->play_row][game->play_col - 1] != WALL)
+	if (game->alive
+		&& game->map_full[game->play_row][game->play_col - 1] != WALL)
 	{
 		game->direction = 0;
 		if (game->map_full[game->play_row][game->play_col - 1] == COIN)
 			coin_collect(game, 0, -1);
 		if (game->map_full[game->play_row][game->play_col - 1] == GOO)
 			game->alive = 0;
-		printf("x = %d  y = %d\n", game->play_row, (game->play_col - 1));
 		game->walking = 1;
 		ft_move_side(game, 0, -1);
 	}
@@ -43,14 +43,14 @@ void	ft_move_left(t_game *game)
 
 void	ft_move_right(t_game *game)
 {
-	if (game->alive && game->map_full[game->play_row][game->play_col + 1] != WALL)
+	if (game->alive
+		&& game->map_full[game->play_row][game->play_col + 1] != WALL)
 	{
 		game->direction = 1;
 		if (game->map_full[game->play_row][game->play_col + 1] == COIN)
 			coin_collect(game, 0, 1);
 		if (game->map_full[game->play_row][game->play_col + 1] == GOO)
 			game->alive = 0;
-		printf("x = %d  y = %d\n", game->play_row, (game->play_col + 1));
 		game->walking = 1;
 		ft_move_side(game, 0, 1);
 	}
@@ -58,7 +58,8 @@ void	ft_move_right(t_game *game)
 
 void	ft_move_up(t_game *game)
 {
-	if (game->alive && game->map_full[game->play_row - 1][game->play_col] != WALL)
+	if (game->alive
+		&& game->map_full[game->play_row - 1][game->play_col] != WALL)
 	{
 		if (game->map_full[game->play_row - 1][game->play_col] == COIN)
 			coin_collect(game, -1, 0);
@@ -70,7 +71,8 @@ void	ft_move_up(t_game *game)
 
 void	ft_move_down(t_game *game)
 {
-	if (game->alive && game->map_full[game->play_row + 1][game->play_col] != WALL)
+	if (game->alive
+		&& game->map_full[game->play_row + 1][game->play_col] != WALL)
 	{
 		if (game->map_full[game->play_row + 1][game->play_col] == COIN)
 			coin_collect(game, 1, 0);

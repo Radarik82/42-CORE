@@ -12,36 +12,6 @@
 
 #include "../src_bonus/so_long.h"
 
-void	ft_move_side(t_game *game, int y, int x)
-{
-	if (game->map_full[game->play_row + y][game->play_col + x] == SPIKES)
-		draw_spiked(game, y, x);
-	else if (game->map_full[game->play_row + y][game->play_col + x] == GOO)
-		kill_in_goo(game, game->play_row + y, game->play_col + x);
-	else if (game->map_full[game->play_row + y][game->play_col + x] == EXIT
-			 && game->inv_n_coins == 0)
-		draw_exiting(game, y, x);
-	else if (game->map_full[game->play_row + y][game->play_col + x] != WALL
-			&& game->map_full[game->play_row + y][game->play_col + x] != EXIT
-			&& game->direction == 0)
-		draw_walk_l(game, y, x);
-	else if (game->map_full[game->play_row + y][game->play_col + x] != WALL
-			&& game->map_full[game->play_row + y][game->play_col + x] != EXIT
-			&& game->direction == 1)
-		draw_walk_r(game, y, x);
-}
-
-void	draw_walk(t_game *game, int y, int x)
-{
-	game->map_full[game->play_row][game->play_col] = EMPTY;
-	ft_draw_map(game, game->play_row, game->play_col);
-	game->play_row += y;
-	game->play_col += x;
-	game->map_full[game->play_row][game->play_col] = PLAY;
-	ft_draw_map(game, game->play_row, game->play_col);
-	ft_show_moves(game);
-}
-
 void	draw_walk_l(t_game *game, int y, int x)
 {
 	game->walking = 1;
@@ -50,9 +20,7 @@ void	draw_walk_l(t_game *game, int y, int x)
 	game->map_full[game->play_row][game->play_col] = PLAY;
 	game->map_full[game->play_row][game->play_col + 1] = EMPTY;
 	ft_draw_map(game, game->play_row, (game->play_col + 1));
-//	ft_draw_map(game, game->play_row, game->play_col);
 	ft_show_moves(game);
-//	game->walking = 0;
 }
 
 void	draw_walk_r(t_game *game, int y, int x)
@@ -63,9 +31,7 @@ void	draw_walk_r(t_game *game, int y, int x)
 	game->map_full[game->play_row][game->play_col] = PLAY;
 	game->map_full[game->play_row][game->play_col - 1] = EMPTY;
 	ft_draw_map(game, game->play_row, (game->play_col - 1));
-//	ft_draw_map(game, game->play_row, game->play_col);
 	ft_show_moves(game);
-//	game->walking = 0;
 }
 
 void	go_anim(t_game *game, int row, int col)
@@ -86,8 +52,10 @@ void	go_anim_l(t_game *game, t_imglist **imglist, int row, int col)
 	{
 		if (game->walking != 0 && game->walking <= 19)
 		{
-			walk = mlx_xpm_file_to_image(game->mlx_ptr, (*imglist)->content, &h, &w);
-			mlx_put_image_to_window(game->mlx_ptr, game->mlx_window, walk, col * CELL, row * CELL);
+			walk = mlx_xpm_file_to_image(game->mlx_ptr,
+					(*imglist)->content, &h, &w);
+			mlx_put_image_to_window(game->mlx_ptr,
+				game->mlx_window, walk, col * CELL, row * CELL);
 			if ((*imglist)->next != NULL)
 				rotate(imglist);
 			game->walking++;
@@ -107,8 +75,10 @@ void	go_anim_r(t_game *game, t_imglist **imglist, int row, int col)
 	{
 		if (game->walking != 0 && game->walking <= 19)
 		{
-			walk = mlx_xpm_file_to_image(game->mlx_ptr, (*imglist)->content, &h, &w);
-			mlx_put_image_to_window(game->mlx_ptr, game->mlx_window, walk, (col - 1) * CELL, row * CELL);
+			walk = mlx_xpm_file_to_image(game->mlx_ptr,
+					(*imglist)->content, &h, &w);
+			mlx_put_image_to_window(game->mlx_ptr,
+				game->mlx_window, walk, (col - 1) * CELL, row * CELL);
 			if ((*imglist)->next != NULL)
 				rotate(imglist);
 			game->walking++;
@@ -117,17 +87,3 @@ void	go_anim_r(t_game *game, t_imglist **imglist, int row, int col)
 			game->walking = 0;
 	}
 }
-//void	draw_walking(t_game *game, t_imglist **imglist, int row, int col)
-//{
-//	void	*walk;
-//	int		h;
-//	int		w;
-//
-//	if (game->frame % 3 == 0 && game->walking <= 18)
-//	{
-//		walk = mlx_xpm_file_to_image(game->mlx_ptr, (*imglist)->content, &h, &w);
-//		mlx_put_image_to_window(game->mlx_ptr, game->mlx_window, exit, col * CELL, row * CELL);
-//		rotate(imglist);
-//		game->walking++;
-//	}
-//}

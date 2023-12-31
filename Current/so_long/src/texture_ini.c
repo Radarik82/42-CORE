@@ -25,7 +25,6 @@ void	ft_texture(t_game *game)
 	t_a(game, &game->play.play_run_2, "rscs/textures/play_run_2.xpm");
 	t_a(game, &game->play.play_run_3, "rscs/textures/play_run_3.xpm");
 	t_a(game, &game->play.play_run_4, "rscs/textures/play_run_4.xpm");
-	t_a(game, &game->play.play_run_5, "rscs/textures/play_run_5.xpm");
 	t_a(game, &game->wind.wall_0, WALL_0);
 	t_a(game, &game->wind.floor_0, "rscs/textures/floor_0.xpm");
 	t_a(game, &game->wind.exit_close, "rscs/textures/exit_c_clean.xpm");

@@ -188,5 +188,4 @@ void	struct_ini1(t_game **game);
 void	coin_anim(t_game *game);
 void	exit_open_anim(t_game *game);
 
-
 #endif

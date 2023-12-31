@@ -40,6 +40,7 @@ SRCS 			= $(addprefix $(BONUS_SRCS_DIR),\
 				list_utils_2.c \
 				list_utils_3.c \
 				texture_ini.c \
+				texture_ini1.c \
 				so_long.c \
 				map_check.c \
 				map_check_alloc.c \
@@ -58,7 +59,7 @@ OBJS 			:= $(SRCS:$(BONUS_SRCS_DIR)%.c=$(BONUS_SRCS_DIR)%.o)
 # SRCS_BONUS 		= $(addprefix $(BONUS_SRCS_DIR),\
 				so_long_bonus.c				\
 				map_init.c)
-CFLAGS 			= -Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS 			= -Wall -Werror -Wextra #-g -fsanitize=address
 # CFLAGS 			= -g -fsanitize=address 
 MLXFLAGS		= -lmlx -framework OpenGL -framework AppKit 
  					#  -lXext -lm -Lmlx

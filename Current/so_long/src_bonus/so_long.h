@@ -242,7 +242,6 @@ void		draw_exiting(t_game *game, int y, int x);
 void		draw_walk(t_game *game, int y, int x);
 void		draw_walk_l(t_game *game, int y, int x);
 void		draw_walk_r(t_game *game, int y, int x);
-
 int			ft_refresh(t_game *game);
 int			ft_show_moves(t_game *game);
 void		ft_finish_game(t_game *game, int col, int row);
@@ -255,6 +254,11 @@ void		exit_open_anim(t_game *game);
 void		exit_open_anim(t_game *game);
 void		exit_opening(t_game *game);
 void		ft_texture1(t_game *game);
+void		ft_texture2(t_game *game);
+void		ft_texture3(t_game *game);
+void		ft_texture4(t_game *game);
+void		ft_texture5(t_game *game);
+void		ft_texture6(t_game *game);
 void		timestamp(t_game *game);
 int			player_moves(t_game *game);
 void		t_to_list(t_imglist **list, char *img);
@@ -266,7 +270,6 @@ void		rotate(t_imglist **stack);
 void		draw_list(t_game *game, int row, int col);
 t_imglist	*is_bottom(t_imglist *stack);
 void		t_a_list(t_game *game, t_imglist *imglist, char *path);
-
 void		death_in_spikes(t_game *game, int row, int col);
 void		check_map_1(t_game *game, int i, int j);
 void		enemy_lstadd_back(t_enemy **lst, t_enemy *new);
@@ -306,7 +309,5 @@ void		go_anim(t_game *game, int row, int col);
 void		go_anim_b(t_game *game, t_imglist **imglist, int row, int col);
 void		go_anim_l(t_game *game, t_imglist **imglist, int row, int col);
 void		go_anim_r(t_game *game, t_imglist **imglist, int row, int col);
-
-
 
 #endif
