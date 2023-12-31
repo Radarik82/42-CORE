@@ -19,6 +19,9 @@ void	ft_move(t_game *game, int y, int x)
 	else if (game->map_full[game->play_row + y][game->play_col + x] == GOO)
 		kill_in_goo(game, game->play_row + y, game->play_col + x);
 	else if (game->map_full[game->play_row + y][game->play_col + x] == EXIT
+			&& game->exit_opened != 25)
+		return ;
+	else if (game->map_full[game->play_row + y][game->play_col + x] == EXIT
 			&& game->exit_opened == 25)
 		draw_exiting(game, y, x);
 	else if (game->map_full[game->play_row + y][game->play_col + x] != WALL
