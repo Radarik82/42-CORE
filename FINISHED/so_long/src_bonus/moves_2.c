@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src_bonus/so_long.h"
+#include "so_long.h"
 
 void	draw_walk_l(t_game *game, int y, int x)
 {

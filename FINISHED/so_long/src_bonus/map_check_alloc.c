@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src_bonus/so_long.h"
+#include "so_long.h"
 
 void	alloc_exit(t_game *game, int i, int j)
 {

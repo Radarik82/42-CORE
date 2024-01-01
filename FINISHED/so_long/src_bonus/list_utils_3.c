@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src_bonus/so_long.h"
+#include "so_long.h"
 
 t_imglist	*so_lstnew(char *content)
 {

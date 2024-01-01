@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src_bonus/so_long.h"
+#include "so_long.h"
 
 void	goo_anim_map(t_game *game, t_imglist **imglist, t_enemy **enemy)
 {

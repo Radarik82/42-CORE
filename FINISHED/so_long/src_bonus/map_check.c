@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src_bonus/so_long.h"
+#include "so_long.h"
 
 // checking paths to all coins and at least one exit
 int	filler(t_game *game, int j, int i)

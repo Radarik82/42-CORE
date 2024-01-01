@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src_bonus/so_long.h"
+#include "so_long.h"
 
 //	coin_list_anim(game, &game->tcoin);
 //	coin_list_anim_map(game, &game->tcoin, &game->mapcoin);

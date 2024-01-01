@@ -1,17 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   junk.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 15:50:56 by ariazano          #+#    #+#             */
-/*   Updated: 2023/12/14 18:48:50 by ariazano         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-#include "so_long.h"
-
+// DIFFERENT JUNK FUNCTIONS FROM CURRENT PROJECTS
 
 // int ft_no_events(t_game *game)
 // {
