@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariazano <ariazano@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 18:38:04 by ariazano          #+#    #+#             */
-/*   Updated: 2024/01/02 18:31:04 by ariazano         ###   ########.fr       */
+/*   Created: 2023/05/20 00:32:48 by ariazano          #+#    #+#             */
+/*   Updated: 2023/05/21 15:25:58 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-// start. still reading ...
-
-# include "minishell.h"
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
+}

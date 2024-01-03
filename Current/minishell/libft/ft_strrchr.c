@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariazano <ariazano@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 18:38:04 by ariazano          #+#    #+#             */
-/*   Updated: 2024/01/02 18:31:04 by ariazano         ###   ########.fr       */
+/*   Created: 2023/05/17 14:00:24 by ariazano          #+#    #+#             */
+/*   Updated: 2023/05/23 17:54:48 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-// start. still reading ...
+char	*ft_strrchr(const char *s, int c)
+{
+	int		i;
+	char	*t;
 
-# include "minishell.h"
+	i = 0;
+	t = NULL;
+	while (s[i] != '\0')
+	{
+		if (s[i] == (char)c)
+			t = ((char *)&s[i]);
+		i++;
+	}
+	if (s[i] == (char)c)
+		t = ((char *)&s[i]);
+	return (t);
+}

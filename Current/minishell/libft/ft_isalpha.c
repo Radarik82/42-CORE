@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariazano <ariazano@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 18:38:04 by ariazano          #+#    #+#             */
-/*   Updated: 2024/01/02 18:31:04 by ariazano         ###   ########.fr       */
+/*   Created: 2023/05/17 10:16:19 by ariazano          #+#    #+#             */
+/*   Updated: 2023/05/21 15:14:14 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-// start. still reading ...
-
-# include "minishell.h"
+int	ft_isalpha(int c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
+}

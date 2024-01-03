@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariazano <ariazano@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 18:38:04 by ariazano          #+#    #+#             */
-/*   Updated: 2024/01/02 18:31:04 by ariazano         ###   ########.fr       */
+/*   Created: 2023/03/07 11:09:36 by ariazano          #+#    #+#             */
+/*   Updated: 2023/05/21 15:05:33 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-// start. still reading ...
-
-# include "minishell.h"
+int	ft_tolower(int c)
+{
+	if (c >= 'A' & c <= 'Z')
+		return (c + 32);
+	return (c);
+}

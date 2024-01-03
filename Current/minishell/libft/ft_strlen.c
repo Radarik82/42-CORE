@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariazano <ariazano@student.42wolfsburg.d>  +#+  +:+       +#+        */
+/*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 18:38:04 by ariazano          #+#    #+#             */
-/*   Updated: 2024/01/02 18:31:04 by ariazano         ###   ########.fr       */
+/*   Created: 2023/03/07 11:05:50 by ariazano          #+#    #+#             */
+/*   Updated: 2023/11/21 00:20:55 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-// start. still reading ...
+int	ft_strlen(char *s)
+{
+	int	i;
 
-# include "minishell.h"
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
