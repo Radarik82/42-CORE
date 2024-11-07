@@ -6,7 +6,7 @@
 /*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:34:28 by ariazano          #+#    #+#             */
-/*   Updated: 2024/11/07 23:33:20 by ariazano         ###   ########.fr       */
+/*   Updated: 2024/11/07 23:35:27 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
 void	error_message(char *text, int signal);
 int		ft_usleep(size_t ms);
-size_t	get_current_time(void)
+size_t	get_current_time(void);
 
 #endif
