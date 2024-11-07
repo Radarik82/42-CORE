@@ -6,7 +6,7 @@
 /*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:34:28 by ariazano          #+#    #+#             */
-/*   Updated: 2024/11/07 23:35:27 by ariazano         ###   ########.fr       */
+/*   Updated: 2024/11/07 23:37:31 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define RESET    "\033[0m"
 # define RED      "\033[31m"
 # define GREEN    "\033[32m"
+# define PHILO_MAX 200
 
 typedef struct	s_philo
 {
