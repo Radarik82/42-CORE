@@ -6,7 +6,7 @@
 /*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:33:13 by ariazano          #+#    #+#             */
-/*   Updated: 2024/11/07 10:37:45 by ariazano         ###   ########.fr       */
+/*   Updated: 2024/11/07 21:27:23 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	av_check(int ac, char **av)
 int	main(int ac, char **av)
 {
 	av_check(ac, av);
+	init_philosophers();
+	
 	
 	return (0);
 }
