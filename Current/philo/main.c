@@ -6,7 +6,7 @@
 /*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:33:13 by ariazano          #+#    #+#             */
-/*   Updated: 2024/11/07 23:38:49 by ariazano         ###   ########.fr       */
+/*   Updated: 2024/11/15 09:41:53 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,15 @@ void	av_check(int ac, char **av)
 
 int	main(int ac, char **av)
 {
+	t_sim			sim;
+	t_philo			philo[PHILO_MAX];
+	pthread_mutex_t	forks[PHILO_MAX];
+	
 	av_check(ac, av);
-	init_philosophers();
-	
-	
+	init_sim(&sim, philo);
+	init_forks(forks, ft_atoi(av[1]));
+	init_philo(philo, &sim, forks, av);
+	threads_init(&sim, forks);
+	threads_clean(NULL, &sim, forks);	
 	return (0);
 }

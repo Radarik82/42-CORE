@@ -6,7 +6,7 @@
 /*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:34:28 by ariazano          #+#    #+#             */
-/*   Updated: 2024/11/07 23:37:31 by ariazano         ###   ########.fr       */
+/*   Updated: 2024/11/15 09:47:36 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct	s_philo
 	int				meals;
 	int				meals_to_eat;
 	int				meals_eaten;
-	int				philo;
+	int				philos;
 	int				id;
 	int				eating;
 	int				*dead;
@@ -48,14 +48,14 @@ typedef struct	s_philo
 	size_t			meals_last;
 }				t_philo;
 
-typedef struct	s_main
+typedef struct	s_sim
 {
 	int				died;
 	pthread_mutex_t	dead_lock;
 	pthread_mutex_t	meals_lock;
 	pthread_mutex_t	write_lock;
 	t_philo			philos;
-}				t_main;
+}				t_sim;
 
 // main
 void	av_check(int ac, char **av);
