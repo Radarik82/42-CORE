@@ -6,7 +6,7 @@
 /*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:19:06 by ariazano          #+#    #+#             */
-/*   Updated: 2024/11/15 11:02:19 by ariazano         ###   ########.fr       */
+/*   Updated: 2024/11/25 08:40:59 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,7 @@ void	*check_status(void *flag)
 	
 	philo = (t_philo *)flag;
 	while(1)
-	if(check_if_dead)
+		if(check_if_dead(philo) ==  1 || check_if_all_ate(philo) == 1)
+			break ;
+	return (flag);
 }

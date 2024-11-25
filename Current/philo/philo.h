@@ -6,7 +6,7 @@
 /*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:34:28 by ariazano          #+#    #+#             */
-/*   Updated: 2024/11/15 09:47:36 by ariazano         ###   ########.fr       */
+/*   Updated: 2024/11/25 09:00:24 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,28 @@ size_t	ft_strlen(const char *str);
 void	error_message(char *text, int signal);
 int		ft_usleep(size_t ms);
 size_t	get_current_time(void);
+
+// thread
+int	death_mutex(t_philo *philo);
+int	create_thread(t_sim *sim, pthread_mutes_t *fork);
+
+// mutex_status
+void	print_status(char *str, t_philo *philo, int id);
+int	philo_death(t_philo *philo, size_t time_to_die);
+int	check_if_dead(t_philo *philo);
+int	check_if_all_ate(t_philo *philo);
+void	*check_status(void *flag);
+
+// init
+void	init_input(t_philo *philo, char **av);
+void	init_philo(t_philo *philo; t_sim *sim, pthread_mutex_t *forks, char **av);
+void	init_forks(pthread_mutex_t *forks, int philos);
+void	init_sim(t_sim *sim, t_philo *philo);
+
+// actions
+void	thinking(t_philo *philo);
+void	sleeping(t_philo *philo);
+void	eating(t_philo *philo);
+void	living(void *flag);
 
 #endif

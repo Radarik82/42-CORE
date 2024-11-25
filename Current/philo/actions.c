@@ -6,7 +6,7 @@
 /*   By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:35:32 by ariazano          #+#    #+#             */
-/*   Updated: 2024/11/15 10:47:29 by ariazano         ###   ########.fr       */
+/*   Updated: 2024/11/25 09:00:29 by ariazano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,20 @@ void	eating(t_philo *philo)
 	philo->eating = 0;
 	pthread_mutex_unlock(philo->fork_l);
 	pthread_mutex_unlock(philo->fork_r);
+}
+
+void	living(void *flag)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)flag;
+	if (philo->id % 2 == 0)
+		ft_usleep(1);
+	while (!death_mutex(philo))
+	{
+		eating(philo);
+		sleeping(philo);
+		thinking(philo);
+	}
+	return (flag);
 }
