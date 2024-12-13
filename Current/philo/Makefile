@@ -6,7 +6,7 @@
 #    By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 10:37:13 by ariazano          #+#    #+#              #
-#    Updated: 2024/11/27 09:18:54 by ariazano         ###   ########.fr        #
+#    Updated: 2024/12/13 10:20:05 by ariazano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ WHITE    		= "\033[37m"    # White
 # Compiler
 NAME			= philo
 CC				= gcc
-CFLAGS			= -Wall -Wextra -Werror
+CFLAGS			= -Wall -Wextra -Werror -fsanitize=thread
 MKDIR			= mkdir -p
 RM				= rm -rf
 LINKER  	    = -lpthread
