@@ -6,7 +6,7 @@
 #    By: ariazano <ariazano@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 10:37:13 by ariazano          #+#    #+#              #
-#    Updated: 2024/11/07 10:37:14 by ariazano         ###   ########.fr        #
+#    Updated: 2024/11/27 09:18:54 by ariazano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,11 +36,7 @@ INCLUDES		= $(wildcard $(INCLUDES_DIR)/*.h)
 
 # Sources
 SRCS_DIR		= srcs/
-SRC_FILES		= main.c \
-				   \
-				   \
-				   \
-				   \
+SRC_FILES		= main.c actions.c init.c mutex_status.c thread.c utils1.c
 
 # Objects
 OBJS_DIR		= objs/
