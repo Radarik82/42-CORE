@@ -1,7 +1,7 @@
 install sudo
 # apt install sudo
 # sudo reboot
-switch to sudo 
+switch to root
 # su root
 and check version 
 # sudo -V
@@ -36,6 +36,10 @@ UFW - UserFireWall
 # sudo ufw allow 4242
 # sudo ufw status
 
+connect via ssh from terminal to continue editing with ctrl-V
+to refresh key on a local machine(not VM)
+# ssh-keygen -f "/home/aleriaza/.ssh/known_hosts" -R "[localhost]:2222"
+
 Policies
 # touch /etc/sudoers.d/sudo_config
 # mkdir /var/log/sudo
@@ -67,6 +71,8 @@ enforce_for_root
 ADDING port 4242 transfer in VB   THEN check connection in terminal   # ssh <user>@localhost -p 4242
 
 MAKING THE SCRIPT  - - - - - - hate this
+
+# sudo nano /usr/local/bin/monitoring.sh
 _____________
 #!/bin/bash
 
@@ -104,7 +110,7 @@ wall "
        Sudo            : $SUDO_LOG commands used
        ------------------------------------------------"
 
-	   
+# sudo chmod +x /usr/local/bin/monitoring.sh	   
 # sudo crontab -u root -e
 add */10 * * * * sh /path to script
 
@@ -115,6 +121,7 @@ Lighttpd - web server    consumes less CPU and RAM
 # sudo ufw allow 80
 # sudo ufw status
 ADD port 80 transfer in VB
+# service lighttpd force-reload
 
 WordPress
 # sudo apt install wget zip
@@ -140,8 +147,8 @@ Reaload privilege tables now? → Y
 # mariadb
 # CREATE DATABASE wp_database;
 # SHOW DATABASES;
-# CREATE USER 'ariazano'@'localhost' IDENTIFIED BY '12345';
-# GRANT ALL PRIVILEGES ON wp_database.* TO 'ariazano'@'localhost';
+# CREATE USER 'aleriaza'@'localhost' IDENTIFIED BY '12345';
+# GRANT ALL PRIVILEGES ON wp_database.* TO 'aleriaza'@'localhost';
 # FLUSH PRIVILEGES
 # SHOW DATABASES;
 exit

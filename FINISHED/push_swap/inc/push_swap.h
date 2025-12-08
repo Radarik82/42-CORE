@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define INT_MIN   (-INT_MAX - 1)  
-# define INT_MAX   2147483647    
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 # include <stddef.h>
 # include <stdlib.h>
@@ -92,8 +92,6 @@ int				int_handle(char **av);
 int				symbol_handle(char **av);
 int				zero_handle(char **av);
 
-
-
 // input check utils
 int				is_digit(char c);
 int				is_sign(char c);
@@ -112,7 +110,8 @@ int				execute(char **av);
 // static void		push_swap(t_arg **a, t_arg **b, int stack_size);
 
 // move
-// static void		rev_rotate_both(t_arg **a, t_arg **b, int *cost_a, int *cost_b);
+// static void		rev_rotate_both(t_arg **a, t_arg **b,
+							// int *cost_a, int *cost_b);
 // static void		rotate_both(t_arg **a, t_arg **b, int *cost_a, int *cost_b);
 // static void		rotate_a(t_arg **a, int *cost);
 // static void		rotate_b(t_arg **b, int *cost);
@@ -126,6 +125,5 @@ void			sort_3(t_arg **stack);
 // static void		push_all_but_three(t_arg **a, t_arg **b);
 // static void		shift_stack(t_arg **a);
 void			sort(t_arg **a, t_arg **b);
-
 
 #endif
